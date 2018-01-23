@@ -6,15 +6,15 @@
  app.use(express.static('public'));
 
  app.get('/', function (req, res){
-	res.render('index');
+	res.render('index', { title: 'Me Acuerdo' });
 })
 
  app.get('/signup', function (req, res){
-	res.render('index');
+	res.render('index', { title: 'Me Acuerdo - Signup' });
 })
 
  app.get('/signin', function (req, res){
-	res.render('index');
+	res.render('index', { title: 'Me Acuerdo - Signin' });
 })
 
  app.listen(3000, function(err){
