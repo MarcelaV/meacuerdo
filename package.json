@@ -1,0 +1,22 @@
+{
+  "name": "platzigram",
+  "version": "0.1.0",
+  "description": "Creando pagina web con js",
+  "main": "server.js",
+  "keywords": [
+    "js",
+    "javascripts",
+    "curso",
+    "platzi",
+    "mvp"
+  ],
+  "author": "Marcela Vilches Pino",
+  "dependencies": {
+    "express": "^4.16.2",
+    "materialize-css": "^0.100.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
