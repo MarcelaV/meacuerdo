@@ -16,7 +16,8 @@ page('/signin', function(ctx, next){
 			},
 			url: 'office.jpg',
 			likes: 10,
-			liked: true
+			liked: true,
+			createAt: new Date()
 		},
 		{
 			user: {
@@ -25,7 +26,8 @@ page('/signin', function(ctx, next){
 			},
 			url: 'office.jpg',
 			likes: 3,
-			liked: true
+			liked: true,
+			createAt: new Date().setDate(new Date().getDate() - 10)
 		}
 	];
 
