@@ -3,8 +3,31 @@ var empty = require('empty-element');
 var template = require('./template');
 var title = require('title');
 
+
 page('/signin', function(ctx, next){
 	title('Me Acuerdo');
 	var main = document.getElementById('main-container');
-	empty(main).appendChild(template);
+
+	var pictures = [
+		{
+			user: {
+				username: 'usuarioprueba',
+				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
+			},
+			url: 'office.jpg',
+			likes: 10,
+			liked: true
+		},
+		{
+			user: {
+				username: 'usuarioprueba',
+				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
+			},
+			url: 'office.jpg',
+			likes: 3,
+			liked: true
+		}
+	];
+
+	empty(main).appendChild(template(pictures));
 })
