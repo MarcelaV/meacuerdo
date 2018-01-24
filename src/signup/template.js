@@ -9,7 +9,7 @@ var signupForm = yo`<div class="col s12 m7">
 			<h2>Regístrate y vive los beneficios de vivir en esta generación</h2>
 			<div class="section">
 				<a href="https://www.facebook.com" target="_blank" class="btn btn-fb hide-on-small-only">Inicia tú sesión con Facebook</a>
-				<a href="https://www.facebook.com" target="_blank" class="btn btn-fb hide-on-med-and-up">Inicia con Facebook</a>
+				<a href="https://www.facebook.com" target="_blank" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Inicia con Facebook</a>
 			</div>
 			<div class="divider"></div>
 				<div class="section">
