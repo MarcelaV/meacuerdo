@@ -15,8 +15,8 @@ page('/signin', function(ctx, next){
 				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
 			},
 			url: 'office.jpg',
-			likes: 10,
-			liked: true,
+			likes: 0,
+			liked: false,
 			createAt: new Date()
 		},
 		{
@@ -25,7 +25,7 @@ page('/signin', function(ctx, next){
 				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
 			},
 			url: 'office.jpg',
-			likes: 3,
+			likes: 1,
 			liked: true,
 			createAt: new Date().setDate(new Date().getDate() - 10)
 		}
