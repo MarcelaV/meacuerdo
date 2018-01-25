@@ -19,7 +19,7 @@ var MESSAGES = {};
 MESSAGES.es = es;
 MESSAGES['en-US'] = en;
 
-var locale = 'en-US';
+var locale = localStorage.locale || 'es';
 
 module.exports = {
   message: function (text, opts) {
@@ -29,6 +29,3 @@ module.exports = {
   },
   date: new IntlRelativeFormat(locale)
 }
-
-
-// localStorage.locale || 'es';

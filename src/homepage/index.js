@@ -11,7 +11,7 @@ page('/signin', function(ctx, next){
 	var pictures = [
 		{
 			user: {
-				username: 'usuarioprueba',
+				username: 'User',
 				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
 			},
 			url: 'office.jpg',
