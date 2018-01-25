@@ -44,7 +44,7 @@
 
 	setTimeout(function(){
 		res.send(pictures);
-	}, 2000)
+	}, 50)
 })
 
  app.listen(3000, function(err){
