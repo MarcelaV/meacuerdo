@@ -1,54 +1,76 @@
- var express = require('express');
+var express = require('express');
+var multer  = require('multer');
+var ext = require('file-extension');
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, +Date.now() + '.' + ext(file.originalname))
+  }
+})
  
- var app = express();
+var upload = multer({ storage: storage }).single('picture');
 
- app.set('view engine', 'pug');
+var app = express();
 
- app.use(express.static('public'));
+app.set('view engine', 'pug');
 
- app.get('/', function (req, res){
-	res.render('index', { title: 'Me Acuerdo' });
+app.use(express.static('public'));
+
+app.get('/', function (req, res) {
+  res.render('index', { title: 'Platzigram' });
 })
 
- app.get('/signup', function (req, res){
-	res.render('index', { title: 'Me Acuerdo - Signup' });
+app.get('/signup', function (req, res) {
+  res.render('index', { title: 'Platzigram - Signup' });
 })
 
- app.get('/signin', function (req, res){
-	res.render('index', { title: 'Me Acuerdo - Signin' });
+app.get('/signin', function (req, res) {
+  res.render('index', { title: 'Platzigram - Signin' });
 })
 
- app.get('/api/pictures', function (req, res){
-	var pictures = [
-		{
-			user: {
-				username: 'User',
-				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
-			},
-			url: 'office.jpg',
-			likes: 0,
-			liked: false,
-			createAt: new Date()
-		},
-		{
-			user: {
-				username: 'usuarioprueba',
-				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNu4qulTDc9BjhKFWkmJDanEyuWTh0h-fUyqq8QsvcOpilZis'
-			},
-			url: 'office.jpg',
-			likes: 1,
-			liked: true,
-			createAt: new Date().setDate(new Date().getDate() - 10)
-		}
-	];
+app.get('/api/pictures', function (req, res, next) {
+  var pictures = [
+    {
+      user: {
+        username: 'User',
+        avatar: 'https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg'
+      },
+      url: 'office.jpg',
+      likes: 0,
+      liked: false,
+      createdAt: new Date().getTime()
+    },
+    {
+      user: {
+        username: 'Usser',
+        avatar: 'https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg'
+      },
+      url: 'office.jpg',
+      likes: 1,
+      liked: true,
+      createdAt: new Date().setDate(new Date().getDate() - 10)
+    }
+  ];
 
-	setTimeout(function(){
-		res.send(pictures);
-	}, 50)
+  setTimeout(function () {
+    res.send(pictures);  
+  }, 2000)
+});
+
+app.post('/api/pictures', function (req, res) {
+  upload(req, res, function (err) {
+    if (err) {
+      return res.send(500, "Error uploading file");
+    }
+    res.send('File uploaded');
+  })
 })
 
- app.listen(3000, function(err){
-	if (err) return console.log("Hubo un error"), process.exit(1);
+app.listen(3000, function (err) {
+  if (err) return console.log('Hubo un error'), process.exit(1);
 
-	console.log('Proyecto escuchando en puerto 3000');
+  console.log('Platzigram escuchando en el puerto 3000');
 })
